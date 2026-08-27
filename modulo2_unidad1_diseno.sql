@@ -9,4 +9,5 @@ CREATE TABLE productos ( -- Creación de tablas
 id_producto INT, -- Número entero para identificar el producto de forma única
 descripcion VARCHAR (255), --Texto intermedio para el detalle del producto
 precio DECIMAL (10, 2), -- Define de forma numerica los precios 
-esta_activo VARCHAR (2) -- Ocupa menos espacio y es más rápido de procesar usando 0 y 1 en vez de letras
+esta_activo INT -- Ocupa menos espacio y es más rápido de procesar usando 0 y 1 en vez de letras
+);
