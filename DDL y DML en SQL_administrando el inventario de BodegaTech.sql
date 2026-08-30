@@ -1,3 +1,8 @@
+-- ══════════════════════════════════════════
+-- BodegaTech — Script de Inventario
+-- Autor: Daniela Rodriguez
+-- Fecha: 30/8/2026
+-- ══════════════════════════════════════════
 -- ── SECCIÓN DDL ──────────────────────────
 -- DROP TABLE
 DROP TABLE IF EXISTS inventario;
@@ -10,7 +15,7 @@ precio_unitario DECIMAL (10, 2), -- DECIMAL se utiliza para los precios
 stock_actual INT,
 stock_minimo INT,
 fecha_ingreso DATE, -- DATE siempre se utilizara para las fechas
-activo TINYINT
+activo TINYINT(1)
 );
 
 -- ── SECCIÓN DML ──────────────────────────
@@ -29,18 +34,12 @@ VALUES
 (10, 'Parlante Bluetooth',    'Audio',    60.00,    45,    8,    '2024-03-01',    1);
 
 -- UPDATE ventas del día
-UPDATE inventario SET stock_actual = 3 WHERE id_producto = 1;
-UPDATE inventario SET stock_actual = 12 WHERE id_producto = 2;
-UPDATE inventario SET stock_actual = 5 WHERE id_producto = 6;
+UPDATE inventario SET stock_actual = stock_actual - 3 WHERE id_producto = 1;
+UPDATE inventario SET stock_actual = stock_actual - 12 WHERE id_producto = 2;
+UPDATE inventario SET stock_actual = stock_actual - 5 WHERE id_producto = 6;
 
 -- UPDATE producto descontinuado
 UPDATE inventario SET activo = 0 WHERE id_producto = 8;
-
--- ══════════════════════════════════════════
--- BodegaTech — Script de Inventario
--- Autor: Daniela Rodriguez
--- Fecha: 30/8/2026
--- ══════════════════════════════════════════
 
 -- SELECT validaciones
 SELECT * FROM inventario
